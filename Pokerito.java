@@ -4,9 +4,31 @@ public class Pokerito {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        for (int i = 0; i < 5; i++) {
-            System.out.println(randomCard());
-        }
+        /*
+        Explanation of rules
+        */
+        System.out.println("\nLet's play Pokerito. Type anything when you're ready.");
+        scan.nextLine();
+        System.out.println("It's like Poker, but a lot simpler.");
+        System.out.println(" - There are two players, you and the computer.");
+        System.out.println(" - The dealer will give each player one card.");
+        System.out.println(" - Then, the dealer will draw five cards (the river)");
+        System.out.println(" - The player with the most river matches wins!");
+        System.out.println(" - If the matches are equal, everyone's a winner!\n");
+        System.out.println("Ready? Type anything if you are.");
+        scan.nextLine();
+
+        /*
+        Presenting cards to the player
+         */
+        String playersCard = randomCard();
+        String computersCard = randomCard();
+
+        System.out.println("Here's your card:");
+        System.out.println(playersCard+"\n");
+
+        System.out.println("Here's the computer's card:");
+        System.out.println(computersCard);
 
         int yourMatches = 0;
         int computerMatches = 0;
@@ -26,101 +48,113 @@ public class Pokerito {
     public static String randomCard() {
         double number = (Math.random() * 13) + 1;
         String card = "";
-        switch ((int) number) {
-            case 1:
-                return "   _____\n" +
-                        "  |A _  |\n" +
-                        "  | ( ) |\n" +
-                        "  |(_'_)|\n" +
-                        "  |  |  |\n" +
-                        "  |____V|\n";
-            case 2:
-                return "   _____\n" +
-                        "  |2    |\n" +
-                        "  |  o  |\n" +
-                        "  |     |\n" +
-                        "  |  o  |\n" +
-                        "  |____Z|\n";
-            case 3:
-                return "   _____\n" +
-                        "  |3    |\n" +
-                        "  | o o |\n" +
-                        "  |     |\n" +
-                        "  |  o  |\n" +
-                        "  |____E|\n";
-            case 4:
-                return "   _____\n" +
-                        "  |4    |\n" +
-                        "  | o o |\n" +
-                        "  |     |\n" +
-                        "  | o o |\n" +
-                        "  |____h|\n";
-            case 5:
-                return "   _____ \n" +
-                        "  |5    |\n" +
-                        "  | o o |\n" +
-                        "  |  o  |\n" +
-                        "  | o o |\n" +
-                        "  |____S|\n";
-            case 6:
-                return "   _____ \n" +
-                        "  |6    |\n" +
-                        "  | o o |\n" +
-                        "  | o o |\n" +
-                        "  | o o |\n" +
-                        "  |____6|\n";
-            case 7:
-                return "   _____ \n" +
-                        "  |7    |\n" +
-                        "  | o o |\n" +
-                        "  |o o o|\n" +
-                        "  | o o |\n" +
-                        "  |____7|\n";
-            case 8:
-                return "   _____ \n" +
-                        "  |8    |\n" +
-                        "  |o o o|\n" +
-                        "  | o o |\n" +
-                        "  |o o o|\n" +
-                        "  |____8|\n";
-            case 9:
-                return "   _____ \n" +
-                        "  |9    |\n" +
-                        "  |o o o|\n" +
-                        "  |o o o|\n" +
-                        "  |o o o|\n" +
-                        "  |____9|\n";
-            case 10:
-                return "   _____ \n" +
-                        "  |10  o|\n" +
-                        "  |o o o|\n" +
-                        "  |o o o|\n" +
-                        "  |o o o|\n" +
-                        "  |___10|\n";
-            case 11:
-                return "   _____\n" +
-                        "  |J  ww|\n" +
-                        "  | o {)|\n" +
-                        "  |o o% |\n" +
-                        "  | | % |\n" +
-                        "  |__%%[|\n";
-            case 12:
-                return "   _____\n" +
-                        "  |Q  ww|\n" +
-                        "  | o {(|\n" +
-                        "  |o o%%|\n" +
-                        "  | |%%%|\n" +
-                        "  |_%%%O|\n";
-            case 13:
-                return "   _____\n" +
-                        "  |K  WW|\n" +
-                        "  | o {)|\n" +
-                        "  |o o%%|\n" +
-                        "  | |%%%|\n" +
-                        "  |_%%%>|\n";
-            default:
-                return "ERROR";
-        }
+        return switch ((int) number) {
+            case 1 -> """
+                       _____
+                      |A _  |
+                      | ( ) |
+                      |(_'_)|
+                      |  |  |
+                      |____V|
+                    """;
+            case 2 -> """
+                       _____
+                      |2    |
+                      |  o  |
+                      |     |
+                      |  o  |
+                      |____Z|
+                    """;
+            case 3 -> """
+                       _____
+                      |3    |
+                      | o o |
+                      |     |
+                      |  o  |
+                      |____E|
+                    """;
+            case 4 -> """
+                       _____
+                      |4    |
+                      | o o |
+                      |     |
+                      | o o |
+                      |____h|
+                    """;
+            case 5 -> """
+                       _____\s
+                      |5    |
+                      | o o |
+                      |  o  |
+                      | o o |
+                      |____S|
+                    """;
+            case 6 -> """
+                       _____\s
+                      |6    |
+                      | o o |
+                      | o o |
+                      | o o |
+                      |____6|
+                    """;
+            case 7 -> """
+                       _____\s
+                      |7    |
+                      | o o |
+                      |o o o|
+                      | o o |
+                      |____7|
+                    """;
+            case 8 -> """
+                       _____\s
+                      |8    |
+                      |o o o|
+                      | o o |
+                      |o o o|
+                      |____8|
+                    """;
+            case 9 -> """
+                       _____\s
+                      |9    |
+                      |o o o|
+                      |o o o|
+                      |o o o|
+                      |____9|
+                    """;
+            case 10 -> """
+                       _____\s
+                      |10  o|
+                      |o o o|
+                      |o o o|
+                      |o o o|
+                      |___10|
+                    """;
+            case 11 -> """
+                       _____
+                      |J  ww|
+                      | o {)|
+                      |o o% |
+                      | | % |
+                      |__%%[|
+                    """;
+            case 12 -> """
+                       _____
+                      |Q  ww|
+                      | o {(|
+                      |o o%%|
+                      | |%%%|
+                      |_%%%O|
+                    """;
+            case 13 -> """
+                       _____
+                      |K  WW|
+                      | o {)|
+                      |o o%%|
+                      | |%%%|
+                      |_%%%>|
+                    """;
+            default -> "ERROR";
+        };
     }
 
 }
