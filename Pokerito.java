@@ -5,11 +5,11 @@ public class Pokerito {
         Scanner scan = new Scanner(System.in);
 
         /*
-        Explanation of rules
-        */
+         * Explanation of rules
+         */
         System.out.println("\nLet's play Pokerito. Type anything when you're ready.");
         scan.nextLine();
-        System.out.println("It's like Poker, but a lot simpler.");
+        System.out.println("Kinda poker, but plenty simpler");
         System.out.println(" - There are two players, you and the computer.");
         System.out.println(" - The dealer will give each player one card.");
         System.out.println(" - Then, the dealer will draw five cards (the river)");
@@ -19,19 +19,47 @@ public class Pokerito {
         scan.nextLine();
 
         /*
-        Presenting cards to the player
+         * Presenting cards to the player
          */
-        String playersCard = randomCard();
+        String yourCard = randomCard();
         String computersCard = randomCard();
 
-        System.out.println("Here's your card:");
-        System.out.println(playersCard+"\n");
+        System.out.println("Here's your card:\n");
+        System.out.println(yourCard + "\n");
 
-        System.out.println("Here's the computer's card:");
+        System.out.println("Here's the computer's card:\n");
         System.out.println(computersCard);
 
         int yourMatches = 0;
         int computerMatches = 0;
+
+        /*
+         * Game logic
+         */
+        System.out.println("\nNow, the dealer will draw five cards. Press enter to continue.");
+
+        for (int i = 0; i < 5; i++) {
+            scan.nextLine();
+            String xd = randomCard();
+            System.out.println("Card: " + (i + 1));
+            System.out.println("\n" + xd);
+            if (xd.equals(yourCard)) {
+                yourMatches++;
+            } else if (xd.equals(computersCard)) {
+                computerMatches++;
+            }
+        }
+
+        System.out.println("Your number of matches: " + yourMatches);
+        System.out.println("Computer number of matches: " + computerMatches);
+
+        if (yourMatches > computerMatches){
+            System.out.println("You win!");
+        } else if (yourMatches < computerMatches){
+            System.out.println("The computer wins!");
+        } else {
+            System.out.println("That's a tie, go again.");
+        }
 
         scan.close();
     }
