@@ -40,12 +40,12 @@ public class Pokerito {
 
         for (int i = 0; i < 5; i++) {
             scan.nextLine();
-            String xd = randomCard();
+            String draw = randomCard();
             System.out.println("Card: " + (i + 1));
-            System.out.println("\n" + xd);
-            if (xd.equals(yourCard)) {
+            System.out.println("\n" + draw);
+            if (draw.equals(yourCard)) {
                 yourMatches++;
-            } else if (xd.equals(computersCard)) {
+            } else if (draw.equals(computersCard)) {
                 computerMatches++;
             }
         }
